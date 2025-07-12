@@ -1,12 +1,17 @@
-def add_task(title, priority, due date):
-    print(f"Adding task: {title} (Priority: {priority}, Due: {due_date})")
-def complete_task(task_id):
-    print(f"Completing task {task_id}")
-def delete_task(task_id):
-    print(f"Deleting task {task_id}")
-def save_task():
-    print("Tasks are auto-saved to local Json")
-def search_tasks(query):
-    print(f"searching for tasks matching: {query}")
-def filter_tasks(criteria):
-    print(f"Filtering tasks by {criteria}")
+@app.route('/search')
+def search():
+    query = request.args.get('q', '').lower()
+    priority_filter = request.args.get('priority')
+    
+    tasks = load_tasks()
+    
+    # Apply filters
+    if query:
+        tasks = [t for t in tasks if query in t['title'].lower()]
+    if priority_filter:
+        tasks = [t for t in tasks if t['priority'] == priority_filter]
+    
+    return render_template('index.html', 
+                         tasks=tasks,
+                         search_query=query,
+                         selected_priority=priority_filter)
