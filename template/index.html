@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "search.html" %}
+    {% include "due_alerts.html" %}
+    <div class="row">
+        <div class="col-md-6">{% include "create_task.html" %}</div>
+        <div class="col-md-6">{% include "task_list.html" %}</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% if due_soon %}
+<div class="alert alert-warning">
+    <h5>⚠️ Due Soon ({{ due_soon|length }})</h5>
+    <ul>
+        {% for task in due_soon %}
+        <li>{{ task.title }} (Due: {{ task.due_date }})</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
