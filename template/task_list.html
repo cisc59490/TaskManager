@@ -1,0 +1,13 @@
+<div class="list-group">
+    {% for task in tasks %}
+    <div class="list-group-item {% if task.completed %}bg-light{% endif %}">
+        <h5>{{ task.title }}</h5>
+        <p>{{ task.description }}</p>
+        <small>Due: {{ task.due_date }} | Priority: {{ task.priority }}</small>
+        <div class="mt-2">
+            <a href="/complete/{{ task.id }}" class="btn btn-sm btn-success">Complete</a>
+            <a href="/delete/{{ task.id }}" class="btn btn-sm btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

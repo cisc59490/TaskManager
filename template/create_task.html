@@ -1,0 +1,11 @@
+<form method="POST" action="/create" class="mb-4">
+    <input type="text" name="title" placeholder="Task title" required class="form-control mb-2">
+    <textarea name="description" placeholder="Description" class="form-control mb-2"></textarea>
+    <input type="date" name="due_date" class="form-control mb-2">
+    <select name="priority" class="form-select mb-2">
+        <option value="low">🟢 Low</option>
+        <option value="medium" selected>🟡 Medium</option>
+        <option value="high">🔴 High</option>
+    </select>
+    <button type="submit" class="btn btn-primary w-100">Create Task</button>
+</form>
